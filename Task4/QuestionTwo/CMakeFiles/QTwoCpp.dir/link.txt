@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/QTwoCpp.dir/cpp_main.cpp.o -o QTwoCpp 
