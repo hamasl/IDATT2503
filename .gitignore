@@ -1,9 +1,11 @@
-*/CMakeFIles/*
 CMakeFiles/*
 *.cmake
-*/CMakeCache.txt
+CMakeCache.txt
+QTwoC
 QTwoCpp
 */Cpp/Makefile
 Cpp/Makefile
 .vscode
 .vs_code
+CMakeFiles/*
+CMakeFiles

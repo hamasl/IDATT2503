@@ -4,7 +4,7 @@ std::string replace_sign(std::string input, std::string to_be_replaced, std::str
     std::string str = input;
     size_t index = 0;
     while(index < str.length()){
-        index = str.find(to_be_replaced, /*(index > 0) ? index+1 :*/ index);
+        index = str.find(to_be_replaced, index);
         if(index == std::string::npos) index = str.length(); //breaks while loop condition
         else {
             //last substring goes from str.length() to str.length() in case the last character is a charcater to be replaced
