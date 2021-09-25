@@ -1,4 +1,4 @@
-# Assembly hello world
+# Quesdtion 1 (Assembly hello world)
 ## Task
 Program prints out Hello World three times to stderr
 and returns with error code 1, as requested by the task.
@@ -7,6 +7,7 @@ and returns with error code 1, as requested by the task.
 * binutils
 
 ## Compile and run
+Assuming that the starting point is in the QuestionOne folder.
 Compile by using (make):
 ```
 make

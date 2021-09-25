@@ -9,3 +9,4 @@ Cpp/Makefile
 .vs_code
 CMakeFiles/*
 CMakeFiles
+main
