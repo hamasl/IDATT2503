@@ -1,66 +1,76 @@
 #include <string.h>
 #include <stdio.h>
 
-int find_substr(const char* const haystack, const char* const needle, const int start_index){
-    for (int i = start_index; i < strlen(haystack)-strlen(needle); ++i){
-        int count = 0;
-        for(int j = 0; j < strlen(needle); ++j){
-            if(haystack[i+j] == needle[j]){
-                count++;
+void move(char * const output, const int start_index, const int amount){
+    char temp[amount];
+    char temp_helper[amount];
+    for (int i = start_index; i < strlen(output) + amount; i += amount)
+    {
+        if(i < start_index+amount){
+            //Is the spacve that is going to be cleared
+            for(int j = 0; j < amount; ++j){
+                temp[j] = output[i+j];
+            }
+        } else{
+            //Is when we need to move stuff
+            for(int j = 0; j < amount; ++j){
+                temp_helper[j] = output[i+j];
+                output[i+j] = temp[j];
+                temp[j] = temp_helper[j];
             }
         }
-        if(count == strlen(needle)){
-            return i;
+    }
+    
+}
+
+void replace(char * const str, const int start_index, const char * const replace_with){
+    move(str, start_index, strlen(replace_with));
+    for (int i = 0; i < strlen(replace_with); ++i)
+    {
+        str[start_index+i] = replace_with[i];
+    }
+}
+
+/// Note: returns amount of signs changed
+int edit(const char* const input, char * const output){
+    int count = 0;
+    int output_index = 0;
+    for(int i = 0; i < strlen(input); ++i){
+        //printf("\n%d\n", (i+output_index));
+        switch (input[i])
+        {
+        case '&':
+            count++;
+            const char* amp = "&amp";
+            replace(output, i+output_index, amp);
+            output_index += strlen(amp)-1;
+            break;
+        case '<':
+            count++;
+            const char* lt = "&lt";
+            replace(output, i+output_index, lt);
+            output_index += strlen(lt)-1;
+            break;
+        case '>':
+            count++;
+            const char* gt = "&gt";
+            replace(output, i+output_index, gt);
+            output_index += strlen(gt)-1;
+            break;
+        default:
+            output[i+output_index] = input[i];
+            break;
         }
     }
-    return -1;
-}
-
-/// NOTE function is unsafe does not check for the capacity of the output string
-char* substr(const char* const input, char * const output, int start, int end){
-    for(int i = start; i < end; ++i){
-        output[i-start] = input[i];
-    }
-    output[end-start] = '\0';
-    return output;
-}
-
-char* replace_sign(const char* const input, char* output, const char* const to_be_replaced, const char* const replace_with){
-    int index = 0;
-    while(index < strlen(output)){
-        index = find_substr(output, to_be_replaced, index);
-        if(index == -1) index = strlen(output); //breaks while loop condition
-        else {
-            char start[index];
-            substr(output, start, 0, index);
-            //last substring goes from str.length() to str.length() in case the last character is a charcater to be replaced
-            //however substr returns an empty string if the start index is equal to the strings length, therefore this does not matter
-            char end[strlen(output)-strlen(to_be_replaced)+index];
-            substr(output, end, strlen(to_be_replaced)+index, strlen(output));
-            output = strcat(strcat(start, replace_with), end);
-            //Increasing (or decreasing) by the difference of the number of characters to be inserted and the number to be removed
-            index += strlen(replace_with) - strlen(to_be_replaced);
-        }
-    }
-    return output;
-}
-
-char* convert(const char* input, char* output){
-    strcpy(output, input);
-    //Need to do & first to not trigger on tem apersand in &lt and &gt
-    replace_sign(input, output ,"&", "&amp");
-    char temp[strlen(output)];
-    strcpy(temp, output);
-    replace_sign(temp, output, "<", "&lt");
-    strcpy(temp, output);
-    replace_sign(temp, output, ">", "&gt");
-    return output;
+    return count;
 }
 
 int main(){
-    char *input = "&lorem ip&sum < > <zx>";
-    //Worct case is every sign is &, and will be replaced with &amp which is four times as much
+    char *input = "&lorem ip&sum < > <zx>";  
+
+    //Worst case is every sign is &, and will be replaced with &amp which is four times as much
     char output[4*strlen(input)];
-    printf("%s has been converted to %s", input, convert(input, output));
+    int changed = edit(input, output);
+    printf("%s has been converted to %s by changing %d characters\n", input, output, changed);
     return 0;
 }
