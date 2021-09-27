@@ -3,11 +3,12 @@ CMakeFiles/*
 CMakeCache.txt
 QTwoC
 QTwoCpp
-*/Cpp/Makefile
-Cpp/Makefile
+/Task4/QuestionTwo/Cpp/Makefile
+/Task4/QuestionTwo/C/Makefile
 .vscode
 .vs_code
 CMakeFiles/*
 CMakeFiles
 main
 *.o
+*/QuestionThree
