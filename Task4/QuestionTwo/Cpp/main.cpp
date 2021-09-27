@@ -24,6 +24,12 @@ std::string convert(std::string input){
 int main(){
     std::string input = "&lorem ip&sum < > <zx>";
     std::cout << input << " converted to: " <<  convert(input) << std::endl;
+
+    input = "if 2 < 1 && 3 > 4";
+    std::cout << input << " converted to: " <<  convert(input) << std::endl;
+
+    input = "else is 1<10 && 23 > 8";
+    std::cout << input << " converted to: " <<  convert(input) << std::endl;
     return 0;
 }
 

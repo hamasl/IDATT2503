@@ -12,3 +12,5 @@ CMakeFiles
 main
 *.o
 */QuestionThree
+stderr.txt
+stdout.txt
