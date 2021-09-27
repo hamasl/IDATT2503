@@ -1,6 +1,6 @@
 # Quesdtion 1 (Assembly hello world)
 ## Task
-Program prints out Hello World three times to stderr
+Program prints out "Hello World from Trondheim!" three times to stderr
 and returns with error code 1, as requested by the task.
 ## Requirements
 * nasm

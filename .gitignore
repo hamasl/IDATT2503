@@ -10,3 +10,4 @@ Cpp/Makefile
 CMakeFiles/*
 CMakeFiles
 main
+*.o
