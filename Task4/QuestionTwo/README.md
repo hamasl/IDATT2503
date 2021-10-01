@@ -16,31 +16,31 @@ Make a program (in each of C, C++ and Rust) that converts every ionstance of &, 
 ## Compiling and running
 Assuming that the starting point is in the QuestionTwo folder.
 ### C
-With make:
+With cmake:
 ```
 cd C
 cmake .
 make
 ./QTwoC
 ```
-Without make:
+Without cmake:
 ```
 cd C
-gcc main.c -O QTwoC
+gcc main.c -o QTwoC
 ./QTwoC
 ```
 ### C++
-With make:
+With cmake:
 ```
 cd Cpp
 cmake .
 make
 ./QTwoCpp
 ```
-Without make:
+Without cmake:
 ```
 cd Cpp
-g++ -std=c++20 main.cpp -O QTwoCpp
+g++ -std=c++20 main.cpp -o QTwoCpp
 ./QTwoCpp
 ```
 ### Rust
