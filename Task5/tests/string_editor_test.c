@@ -6,11 +6,11 @@ int main(){
     char *input = "< & > test";
     char output[4*strlen(input)];
     edit(input, output);
-    assert(*output == "&lt &amp &gt test");
+    assert(strcmp(output, "&lt &amp &gt test") == 0);
 
     input = "hei hallo";
     memset(output, 0, sizeof(output));
     edit(input, output);
-    assert(*output == *input);
+    assert(strcmp(input, output) == 0);
     return 0;
 }
