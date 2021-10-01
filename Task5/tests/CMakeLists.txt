@@ -1,0 +1,10 @@
+add_executable(string_editor_test string_editor_test.c)
+target_link_libraries(string_editor_test string_editor)
+target_compile_options(string_editor_test PRIVATE -fsanitize=address)
+target_link_options(string_editor_test PRIVATE -fsanitize=address)
+add_test(NAME string_editor_test COMMAND string_editor_test)
+
+add_executable(string_editor_fuzzer_test string_editor_fuzzer_test.c)
+target_link_libraries(string_editor_fuzzer_test string_editor)
+target_compile_options(string_editor_fuzzer_test PRIVATE -fsanitize=address,fuzzer)
+target_link_options(string_editor_fuzzer_test PRIVATE -fsanitize=address,fuzzer)
