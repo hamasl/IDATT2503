@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(Task5)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c++20 -Wall -Wextra")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -Wall -Wextra")
 
 add_library(string_editor INTERFACE)
 target_include_directories(string_editor INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
