@@ -1,0 +1,26 @@
+image: archlinux:latest
+
+stages:
+  - build
+  - test
+
+build-project:
+  stage: build
+  script:
+    - pacman -Syu --noconfirm
+    - pacman -S clang --noconfirm
+    - pacman -S cmake --noconfirm
+    - pacman -S make --noconfirm
+    - mkdir build
+    - cd build && CC=clang cmake .. && make
+
+
+fuzzer-testing:
+  stage: test
+  script:
+    - ./build/tests/string_editor_fuzzer_test -max_total_time=60"
+
+manual-testing:
+  stage: test
+  script:
+    - ./build/tests/string_editor_test"

@@ -40,7 +40,7 @@ make
 Without cmake:
 ```
 cd Cpp
-g++ -std=c++20 main.cpp -o QTwoCpp
+g++ -std=c++2a main.cpp -o QTwoCpp
 ./QTwoCpp
 ```
 ### Rust
