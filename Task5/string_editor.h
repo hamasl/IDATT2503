@@ -2,42 +2,18 @@
 
 #include <string.h>
 
-void move(char * const output, const int start_index, const int amount){
-    char temp[amount];
-    char temp_helper[amount];
-    for (int i = start_index; i < strlen(output) + amount; i += amount)
-    {
-        if(i < start_index+amount){
-            //Is the spacve that is going to be cleared
-            for(int j = 0; j < amount; ++j){
-                temp[j] = output[i+j];
-            }
-        } else{
-            //Is when we need to move stuff
-            for(int j = 0; j < amount; ++j){
-                temp_helper[j] = output[i+j];
-                output[i+j] = temp[j];
-                temp[j] = temp_helper[j];
-            }
-        }
-    }
-    
-}
-
-void replace(char * const str, const int start_index, const char * const replace_with){
-    move(str, start_index, strlen(replace_with));
-    for (int i = 0; i < strlen(replace_with); ++i)
+void replace(char * const str, const size_t start_index, const char * const replace_with){
+    for (size_t i = 0; i < strlen(replace_with); ++i)
     {
         str[start_index+i] = replace_with[i];
     }
 }
 
 /// Note: returns amount of signs changed
-int edit(const char* const input, char * const output){
-    int count = 0;
-    int output_index = 0;
-    for(int i = 0; i < strlen(input); ++i){
-        //printf("\n%d\n", (i+output_index));
+size_t edit(const char* const input, char * const output){
+    size_t count = 0;
+    size_t output_index = 0;
+    for(size_t i = 0; i <= strlen(input); ++i){
         switch (input[i])
         {
         case '&':
