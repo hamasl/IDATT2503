@@ -16,3 +16,4 @@ stderr.txt
 stdout.txt
 build
 *.deb
+node_modules
