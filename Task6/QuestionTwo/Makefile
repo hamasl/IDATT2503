@@ -1,3 +1,3 @@
 run:
-	browserify main.js -o bundle.js
+	browserify client.js -o ./build/bundle.js
 	node server.js
