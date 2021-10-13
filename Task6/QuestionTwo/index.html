@@ -7,10 +7,37 @@
     <title>QuestionTwo</title>
 </head>
 <body>
-    <input type="text" id="name" placeholder="Username">
-    <input type="password" id="pass" placeholder="Password">
-    <button id="btn">Log in</button>
-    <p id="msg">You are not logged in</p>
+    <div id="container">
+        <div id="signup">
+            <h2>Register:</h2>
+            <input type="text" id="signup-name" placeholder="Username">
+        <input type="password" id="signup-pass" placeholder="Password">
+        <button id="signup-btn">Sign up</button>
+        <p id="signup-msg"></p>
+        </div>
+        <div id="login">
+            <h2>Log in:</h2>
+    <input type="text" id="login-name" placeholder="Username">
+    <input type="password" id="login-pass" placeholder="Password">
+    <button id="login-btn">Log in</button>
+    <p id="login-msg"></p>
+    </div>
+    </div>
+<style>
+    #container{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    #signup{
+        order:1;
+        width: 50%;
+    }
+    #login{
+        order:2;
+        width:50%
+    }
+</style>
 <script src="./build/bundle.js">
     
 </script>
