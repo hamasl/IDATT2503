@@ -3,6 +3,9 @@ const KEYSIZE = 512/8
 const express = require("express")
 const app = express()
 const CryptoJS = require("crypto-js")
+const jwt = require("jsonwebtoken")
+//NEVER store a secret this way, this is just for simplifying the task. In production use a .env file
+const TOKEN_SECRET = "227ffdfdf0bf4fcfc0f173f39a5cdba7326e04dfb3be43a04072440c68940ee21335efee290bb2ad3ae37338e6a8d0b13ab2aee50a4249f2e26cd840be62445e"
 
 const getHash = (pass, salt) =>  CryptoJS.PBKDF2(pass, salt, {keySize: KEYSIZE, iterations: 2048}).toString()
 
@@ -47,7 +50,7 @@ app.post("/login", (req, res) => {
         let hash = getHash(req.body["password"], user.salt)
         if(hash == user.hash){
             res.status(201)
-            res.send()
+            res.json({token: jwt.sign(user.username, TOKEN_SECRET)})
             return
         }
     }

@@ -1,5 +1,6 @@
 const CryptoJS = require("crypto-js")
-const axios = require("axios")
+const axiosModule = require("axios")
+const axios = axiosModule.create(null)
 //Using localhost as domain part of frontend salt since this is educational and will therefore only run on localhost
 const SALT_CONST = "localhost"
 const KEY_SIZE = 512/8
@@ -48,6 +49,7 @@ loginBtn.addEventListener("click", async () => {
         })
         if(res.status === 201){
             loginMsg.innerHTML = "Logged in."
+            axios.defaults.headers["Authorization"] = "Bearer " + res.data.token
             return
         }
     } catch(err){

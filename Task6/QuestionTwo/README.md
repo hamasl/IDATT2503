@@ -9,3 +9,4 @@
 * CryptoJS
 * browserify
 * axios
+* jsonwebtoken
