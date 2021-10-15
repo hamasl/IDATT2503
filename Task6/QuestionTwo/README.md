@@ -3,7 +3,7 @@
 ## Task
 Create a server and a client, were the client authenticates against the server via PBKDF2. Both the client and server should hash the password.
 Using HTTPS was not necessary. It was possible to pretend that it was in use which I did.
-Voulintarily a token can be returned from the authentication.
+Voluntarily a token can be returned from the authentication.
 
 ## Prerequisites
 * npm
