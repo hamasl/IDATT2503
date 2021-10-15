@@ -1,0 +1,19 @@
+{
+  "name": "questiontwo",
+  "version": "1.0.0",
+  "description": "Question 2 of security task 6",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.22.0",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
