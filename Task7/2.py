@@ -59,4 +59,4 @@ if __name__ == "__main__":
     n = 29
     a = 11
     print("\n\nTask d:")
-    print(f"{brute_force_multaplicative_inverse(n,a)} is the multiplicative inverse for {11} modulo {29}")
+    print(f"{brute_force_multaplicative_inverse(n,a)} is the multiplicative inverse for {a} modulo {n}")
