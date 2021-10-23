@@ -5,7 +5,7 @@ def f(x):
 
 
 def f_inverse(y):
-    return 8*(y-24)%len(alphabet)
+    return (8*y+11)%len(alphabet)
 
 if __name__ == '__main__':
     # Task a
