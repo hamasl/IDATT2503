@@ -11,6 +11,9 @@ def decrypt_simple_aes_128(inp: [int]) -> [int]:
     print("hei")
 
 
+def s_box():
+    print("hei")
+
 def hex_to_byte_list(hex_str: str) -> [int]:
     out = []
     inp = hex_str.split(" ")
