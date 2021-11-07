@@ -226,10 +226,14 @@ if __name__ == '__main__':
     print("Task a:")
     print(f"Cipher as byte list: {c_a}")
     print(f"Cipher as hex: {byte_list_to_hex(c_a)}")
+    #TODO output of this not quite correct
+    print(byte_list_to_hex(decrypt_simple_aes_128(c_a, hex_to_byte_list(key))))
 
     # Task b
-    c_b = "26 FA 83 E7 2D CD 5D B8 C4 DC EB 12 70 CF D16 1E"
+    c_b = "26 FA 83 E7 2D CD 5D B8 C4 DC EB 12 70 CF D6 1E"
     m_b = decrypt_simple_aes_128(hex_to_byte_list(c_b), hex_to_byte_list(key))
     print("\n\nTask b:")
     print(f"Cipher as byte list: {m_b}")
     print(f"Cipher as hex: {byte_list_to_hex(m_b)}")
+    print(byte_list_to_hex(encrypt_simple_aes_128(m_b, hex_to_byte_list(key))))
+
