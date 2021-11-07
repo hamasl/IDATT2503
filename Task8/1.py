@@ -22,7 +22,6 @@ def vigenere_decrypt(c, k):
 
 def print_decrypted(cipher, key):
     print(f"\n\nkey: {k}")
-    print(len(k))
     print(f"message: {vigenere_decrypt(cipher, k)}")
 
 if __name__ == '__main__':
@@ -43,6 +42,9 @@ if __name__ == '__main__':
     print_decrypted(c, k)
 
     k = "ing"
+    print_decrypted(c, k)
+
+    k = "ring"
     print_decrypted(c, k)
 
     k = "mng"
