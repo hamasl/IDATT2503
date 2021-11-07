@@ -50,8 +50,6 @@ def xor_lists(a: [], b: []):
     :param b:
     :return:
     """
-    #print(a)
-    #print(b)
     if len(a) != len(b):
         raise Exception("Byte lists needs the same length")
     out = []

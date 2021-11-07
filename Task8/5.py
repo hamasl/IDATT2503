@@ -46,7 +46,7 @@ if __name__ == "__main__":
     k = 17
     c_as_ints = autokey_encrypt(str_to_int_array(m), k)
     print(f"Cipher as int values: {c_as_ints}")
-    print(f"Cipher as string: {int_array_to_str(c_as_ints)}")
+    print(f"Cipher as string: {int_array_to_str(c_as_ints).upper()}")
 
     print("\n\nTask b:")
     c = "23 08 23 12 21 02 04 03 17 13 19"
