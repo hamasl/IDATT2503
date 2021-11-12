@@ -37,7 +37,7 @@ if __name__ == '__main__':
     e = 3
     res = extended_euclidean_algorithm(phi_n, e)
     d = res[2] % phi_n
-    print(f"Extended euclidean algorithm with phi_n: {phi_n} and e: {e} =  {res}")
+    print(f"Extended euclidean algorithm with phi_n: {phi_n} and e: {e} = {res}")
     print(f"d is {d}")
 
     print("\n\nTask e:")
