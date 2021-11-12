@@ -10,12 +10,14 @@ def append_bitstring(x, y, block_size):
 def simple_hmac(x, k, ipad, opad, func):
     k_opad = k ^ opad
     k_ipad = k ^ ipad
-    inner_hashed = hash_method(append_bitstring(k_ipad, x, 4))
-    return hash_method(append_bitstring(k_opad, inner_hashed, 4))
+    inner_hashed = func(append_bitstring(k_ipad, x, 4))
+    return func(append_bitstring(k_opad, inner_hashed, 4))
+
 
 if __name__ == '__main__':
     print("Task a:")
+    print("HMAC:", end=" ")
     print("{:04b}".format(simple_hmac(0b0110, 0b1001, 0b0011, 0b0101, hash_method)))
     print("\nTask b:")
+    print("HMAC:", end=" ")
     print("{:04b}".format(simple_hmac(0b0111, 0b1001, 0b0011, 0b0101, hash_method)))
-
