@@ -1,5 +1,5 @@
 def hash_method(val):
-    hashed = val ** 2 % (2 ** 8)
+    hashed = (val ** 2) % (2 ** 8)
     return (hashed >> 2) & 0b001111
 
 

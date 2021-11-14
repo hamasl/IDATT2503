@@ -1,7 +1,7 @@
 def factor_n(n, num_of_tries):
     """
     Factors n into p and q.
-    :param num_of_tries: The max value of d, not including this one. E.g. max_d of 10 tries 9.
+    :param num_of_tries: The number of d-values to be tested.
     :param n: p*q
     :return: q and p, where q > p > 2
     """
