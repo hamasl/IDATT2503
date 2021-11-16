@@ -4,7 +4,7 @@ def shanks_algorithm(p, alpha, beta):
     for j in range(m):
         dictionary[(alpha ** (m * j)) % p] = j
     for i in range(m):
-        if (val := beta * pow(alpha, -i, p)) in dictionary:
+        if (val := (beta * pow(alpha, -i, p) % p)) in dictionary:
             return m, i, dictionary[val]
 
     return None

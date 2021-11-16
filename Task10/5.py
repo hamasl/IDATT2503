@@ -22,6 +22,10 @@ def rsa_verify(x, y, b, n):
     return x == rsa_encrypt(y, b, n)
 
 
+def chosen_message_attack(mes_sig_tuple_1, mes_sig_tuple_2, n):
+    return (mes_sig_tuple_1[0] * mes_sig_tuple_2[0]) % n, (mes_sig_tuple_1[1] * mes_sig_tuple_2[1]) % n
+
+
 if __name__ == '__main__':
     # Bob's keys
     n_b = 23 * 19
@@ -34,6 +38,21 @@ if __name__ == '__main__':
     m_2 = (123, 289)
     print(f"m_1 is valid: {rsa_verify(m_1[0], m_1[1], b_b, n_b)}")
     print(f"m_2 is valid: {rsa_verify(m_2[0], m_2[1], b_b, n_b)}")
+
+    # Using Bob's keys to create a falsified message
+    print("\nTask 2:")
+    mes = 67
+    falsified_m_1 = mes, rsa_sign(mes, a_b, n_b)
+    print(f"falsified_m_1: {falsified_m_1}")
+    print(f"falsified_m_1 is valid: {rsa_verify(falsified_m_1[0], falsified_m_1[1], b_b, n_b)}")
+
+    # Chosen message attack
+    print("\nTask 3:")
+    m_4 = (38, 171)
+    m_5 = (97, 337)
+    falsified_m_2 = chosen_message_attack(m_4, m_5, n_b)
+    print(f"falsified_m_2: {falsified_m_2}")
+    print(f"falsified_m_2 is valid: {rsa_verify(falsified_m_2[0], falsified_m_2[1], b_b, n_b)}")
 
     # Sending message from Alice to Bob
     print("\nTask 4:")
