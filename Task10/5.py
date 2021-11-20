@@ -63,6 +63,6 @@ if __name__ == '__main__':
     message = 109
     # Signing with Alice's private key
     sign_val = rsa_sign(message, a_a, n_a)
-    # Encrypting message and signing with Bob's public key
+    # Encrypting message with Bob's public key
     cipher = (rsa_encrypt(message, b_b, n_b), rsa_encrypt(sign_val, b_b, n_b))
     print(f"Signed and encrypted message: {cipher}")
